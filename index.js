@@ -33,7 +33,6 @@ function start(name, at){
   if (this._meddlers[name]){
 
     var currentTime = this.context.currentTime
-    console.log('start', name, at)
 
     var container = {
       name: name, startAt: at,
@@ -70,7 +69,6 @@ function start(name, at){
 
 function stop(name, at){
   for (var i=0;i<this._active.length;i++){
-    console.log('stop', name, at)
 
     var container = this._active[i]
     if (container.name === name && at > container.startAt && !container.stopAt){
