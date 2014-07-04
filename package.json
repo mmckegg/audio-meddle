@@ -1,6 +1,6 @@
 {
   "name": "audio-meddle",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Route Web Audio API audio nodes through schedulable chains of processor nodes.",
   "main": "index.js",
   "scripts": {
