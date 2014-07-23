@@ -28,6 +28,6 @@
   },
   "homepage": "https://github.com/mmckegg/audio-meddle",
   "dependencies": {
-    "custom-audio-node": "^0.1.1"
+    "custom-audio-node": "^0.3.0"
   }
 }
