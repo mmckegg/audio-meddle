@@ -46,7 +46,7 @@ function start(name, at){
     container.input.connect(container.bypass)
     container.input.connect(container.route)
     container.bypass.connect(container.output)
-    container.route.connect(container.meddler)
+    container.route.connect(container.meddler.input || container.meddler)
     container.meddler.connect(container.output)
 
     container.route.gain.value = 0
@@ -96,11 +96,11 @@ function refreshRouting(node){
       node._active.splice(i, 1)
     } else {
       container.output.disconnect()
-      container.output.connect(lastNode)
+      container.output.connect(lastNode.input || lastNode)
       lastNode = container.input
     }
   }
 
   node._input.disconnect()
-  node._input.connect(lastNode)
+  node._input.connect(lastNode.input || lastNode)
 }
