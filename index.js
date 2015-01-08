@@ -30,7 +30,7 @@ function remove(name){
 }
 
 function start(name, at){
-  if (this._meddlers[name]){
+  if (this._meddlers[name] && !checkRunning(this._active, name, at)){    
 
     var currentTime = this.context.currentTime
 
@@ -103,4 +103,14 @@ function refreshRouting(node){
 
   node._input.disconnect()
   node._input.connect(lastNode.input || lastNode)
+}
+
+function checkRunning(active, name, at){
+  for (var i=0;i<active.length;i++){
+    var container = active[i]
+    if (container.name === name && at > container.startAt && (!container.stopAt || container.stopAt > at)){
+      console.log(container)
+      return true
+    }
+  }
 }
